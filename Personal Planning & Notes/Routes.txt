@@ -1,0 +1,30 @@
+Route 1 - Shanghai (China), Singapore, Colombo (Sri Lanka), Rotterdam (Netherlands), Antwerp (Belgium)
+Route 2 - Tokyo (Japan), Valencia (Spain), Algericas (Spain), Rotterdam (Netherlands), Felixstowe (UK)
+Route 3 - Busan (Korea), Port Klang (Malaysia), Le Havre (France), Algericas (Spain), Genoa (Italy)
+Route 4 - New York (USA), Halifax (Canada), Rotterdam (Netherlands), Dublin (Ireland), Gothenburg (Sweden)
+Route 5 - Jebel Ali (UAE), Dammam (Saudia Arabia), Port Said (Egypt), Piraeus (Greece), Rotterdam (Netherlands)
+
+PRTSHNG
+PRTSING
+PRTCLMB
+PRTRTDM
+PRTANTP
+PRTTKYO
+PRTVALC
+PRTALGS
+PRTFLXS
+PRTBUSN
+PRTKLNG
+PRTHVRE
+PRTGNOA
+PRTNEWY
+PRTHLFX
+PRTDBLN
+PRTGTHB
+PRTJBAL
+PRTDMAM
+PRTSAID
+PRTPIRS
+
+
+

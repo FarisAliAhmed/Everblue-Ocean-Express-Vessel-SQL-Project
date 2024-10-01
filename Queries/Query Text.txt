@@ -1,0 +1,53 @@
+Query 1 - Find the Schedule of specific Vessel
+SELECT vs."Schedule_ID", vs."Port_ID", vs."Arrival_Date", vs."Departure_Date", vr."Route_Starting_Point", vr."Route_End_Point", vr."Port_Count", vr."Route_Start_Date", vr."Route_End_Date"
+FROM "Vessel_Schedule" vs
+INNER JOIN "Vessel_Route" vr ON vs."IMO_Number" = vr."IMO_Number"
+WHERE vs."IMO_Number" = '707453'
+
+Query 2 - Show All customers and their cargo detail for a specific vessel route and the total of the Booking Price.
+SELECT C."Customer_ID", C."Customer_First_Name", C."Customer_Surname",CB."Cargo_Contents", CB."Cargo_Type", CB."Cargo_Quantity", CB."Cargo_Weight_KG",CB."Collection_From", CB."Delivery_To", CT."Booking_Price_GBP"
+FROM "Customer" C
+JOIN "Container_Booking" CB ON C."Customer_ID" = CB."Customer_ID"
+JOIN "Service_Route" SR ON CB."Booking_ID" = SR."Booking_ID"
+JOIN "Container" CO ON CB."Container_ID" = CO."Container_ID"
+JOIN "Container_Type" CT ON CO."Container_Type" = CT."Container_Type"
+WHERE SR."Vessel_Route_ID" = 'VR18453'
+UNION ALL
+SELECT NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, SUM(CT."Booking_Price_GBP")
+FROM "Customer" C
+JOIN "Container_Booking" CB ON C."Customer_ID" = CB."Customer_ID"
+JOIN "Service_Route" SR ON CB."Booking_ID" = SR."Booking_ID"
+JOIN "Container" CO ON CB."Container_ID" = CO."Container_ID"
+JOIN "Container_Type" CT ON CO."Container_Type" = CT."Container_Type"
+WHERE SR."Vessel_Route_ID" = 'VR18453';
+
+Query 3 - Profit made from Container Bookings
+Select Sum("Booking_Price_GBP")
+From "Container_Type"
+Where "Container_Type" In (Select "Container_Type" 
+From "Container"
+Where "Container_ID" In (Select "Container_ID"
+From "Container_Booking"))
+
+Query 4 - Show all crew members that belong to a vessel for a specific journey
+Select "Employee_ID", "Employee_First_Name", "Employee_Surname", "Employee_Department", "Employee_Role"
+From "Employee"
+Where "Employee_ID" In(Select "Employee_ID"
+From "Crew_Assignment"
+Where "Crew_ID" In(Select "Crew_ID"
+From "Crew_Assignment"
+Where "Crew_ID" In(Select "Crew_ID"
+From "Crew"
+Where "Crew_ID" In(Select "Crew_ID"
+From "Vessel_Route"
+Where "Vessel_Route_ID" = 'VR18453'))))
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+- Vessels with exact same route 
+- Vessel that goes on two journeys (Vessel 707453)
+- Vessels with different routes but stop at same port (VR18453 and VR71834 both stop at Rotterdam) (VR71834 and VR29573 both stop at Algericas)
+- Vessels with different routes
+
+- Customer can make multiple bookings for the same ship (CS53492 Sarah Martinez)
+- Customer can make bookings for different vessels (CS31876 David Rodriguez)
